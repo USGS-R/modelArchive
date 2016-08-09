@@ -1,0 +1,23 @@
+Package: modelArchive
+Type: Package
+Title: Aids in creating and reviewing model archives for USGS R models.
+Version: 0.1
+Date: 2016-08-09
+Authors@R: c( person("Joe", "Mills", role = c("aut","cre"),
+    email = "tmills@usgs.gov"))
+Depends:
+    R (>= 3.0)
+Imports:
+  packrat,
+  testthat
+License: CC0
+LazyLoad: yes
+LazyData: yes
+VignetteBuilder: knitr
+BuildVignettes: true
+Copyright: This software is in the public domain because it contains materials
+    that originally came from the United States Geological Survey, an agency of
+    the United States Department of Interior. For more information, see the
+    official USGS copyright policy at
+    http://www.usgs.gov/visual-id/credit_usgs.html#copyright
+RoxygenNote: 5.0.1
