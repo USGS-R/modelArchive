@@ -5,13 +5,14 @@
 
 #' @param dataFrame Data.frame object to document
 #' @param file Filename of text file to contain output, should be the same name as datafile being described with no extension. If left NULL output prints to console. 
+#' @param type type of text file formatting, can either by "ascii" for an ascii table or "tab" for tab delimited
 #'@examples
 #'dataDoc(dataFrame = iris)
 #'@import ascii
 #'@export
 #'
 
-dataDoc <- function(dataFrame,file=NULL)
+dataDoc <- function(dataFrame,fileName=NULL,type="ascii")
 {
   types <- apply(dataFrame,2,typeof)
   
@@ -19,16 +20,26 @@ dataDoc <- function(dataFrame,file=NULL)
                          dataType = types)
   metaData$description <- ""
   
-  if(!is.null(file))
+  if(!is.null(fileName))
   {
-  docfile <- paste0(getwd(),"/",file,".meta")
-  file.create(docfile)
-  sink(docfile)
-  ascii(metaData,include.rownames=FALSE,caption=file)
-  sink()
-  }
-  else {
-    ascii(metaData,include.rownames=FALSE)
+    if(type=="ascii")
+    {
+      docfile <- file(paste0(getwd(),"/",fileName,".meta"))
+      sink(docfile)
+      print(ascii(metaData,include.rownames=FALSE,caption=fileName))
+      sink()
+    } else if (type =="tab")
+    {
+      write.table(metaData,sep="\t",row.names=FALSE,quote=FALSE,file=paste0(getwd(),"/",fileName,".meta"))
+    }
+  } else {
+    if(type=="ascii")
+    {
+      ascii(metaData,include.rownames=FALSE)
+    } else if(type == "tab")
+    {
+      write.table(metaData,sep="\t",row.names=FALSE,quote=FALSE)
+    }
   }
 }
 

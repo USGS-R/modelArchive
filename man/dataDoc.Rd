@@ -4,10 +4,12 @@
 \alias{dataDoc}
 \title{Checks basic files and documentation in model archive.}
 \usage{
-dataDoc(dataFrame, file = NULL)
+dataDoc(dataFrame, fileName = NULL, type = "ascii")
 }
 \arguments{
 \item{dataFrame}{Data.frame object to document}
+
+\item{type}{type of text file formatting, can either by "ascii" for an ascii table or "tab" for tab delimited}
 
 \item{file}{Filename of text file to contain output, should be the same name as datafile being described with no extension. If left NULL output prints to console.}
 }
