@@ -3,20 +3,58 @@
 #' @description
 #' The \code{makeReadMe} function generates a basic readme file describing the model and model archive directory structure
 
+#' @param modelTitle String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
+#' @param modelAuthor String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
+#' @param modelContact String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param modelDescription String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
+#' @param modelRunProcedure String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param filePath Relative file path of folder cooresponding to model archive folder.
 #'@examples
-#'makeReadMe()
+#'makeReadMe(modelTitle = "example, modelDescription = "This is a test of the emergency broadcast system.")
 #'@export
 #'
-makeReadMe <- function(modelDescription,filePath = "modelArchive") {
+makeReadMe <- function(modelTitle = "",
+                       modelAuthor = "",
+                       modelContact = "",
+                       modelDescription = "",
+                       modelRunProcedure = "",
+                       supInfo = "",
+                       filePath = "modelArchive") {
 
+  systemInfo <- Sys.info()
+  rVersion <- paste0(R.Version()$major,".",R.Version()$minor)
+  
   readmeFile <- paste0(getwd(),"/",filePath,"/README.txt")
   file.create(readmeFile)
-  cat(modelDescription, file= readmeFile,sep="\n",append=TRUE)
   
+  cat("TITLE: ",modelTitle, file= readmeFile,sep="\n",append=TRUE)
+  cat("AUTHOR: ",modelAuthor, file= readmeFile,sep="\n",append=TRUE)
+  cat("CONTACT: ",modelContact, file= readmeFile,sep="\n",append=TRUE)
   cat("", file= readmeFile,sep="\n",append=TRUE)
-  cat("Directory Structure", file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("DESCRIPTION", file= readmeFile,sep="\n",append=TRUE)
+  cat(modelDescription, file= readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("OPERATING SYSTEM:",
+      systemInfo[1],
+      " ",systemInfo[2],
+      " ",systemInfo[3],
+      file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("R VERSION:",
+      rVersion,
+      file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("MODEL RUN PROCEDURE", file= readmeFile,sep="\n",append=TRUE)
+  cat(modelRunProcedure, file= readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("SUPPLEMENTAL INFORMATION", file= readmeFile,sep="\n",append=TRUE)
+  cat(supInfo, file= readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("DIRECTORY STRUCTURE", file= readmeFile,sep="\n",append=TRUE)
   cat("", file= readmeFile,sep="\n",append=TRUE)
   
   ###Get directory structure

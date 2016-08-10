@@ -4,17 +4,24 @@
 \alias{makeReadMe}
 \title{Makes a basic readme to go with model archive.}
 \usage{
-makeReadMe(modelDescription, filePath = "modelArchive")
+makeReadMe(modelTitle = "", modelAuthor = "", modelContact = "",
+  modelDescription = "", modelRunProcedure = "", supInfo = "",
+  filePath = "modelArchive")
 }
 \arguments{
+\item{modelTitle}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
+
+\item{modelAuthor}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
+
+\item{modelContact}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
+
 \item{modelDescription}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
+
+\item{modelRunProcedure}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
 
 \item{filePath}{Relative file path of folder cooresponding to model archive folder.}
 }
 \description{
 The \code{makeReadMe} function generates a basic readme file describing the model and model archive directory structure
-}
-\examples{
-makeReadMe()
 }
 
