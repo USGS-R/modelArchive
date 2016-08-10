@@ -29,6 +29,8 @@ makeReadMe <- function(modelDescription,filePath = "modelArchive") {
   
   cat(filePath,file=readmeFile,sep="\n",append=TRUE)
   cat(paste0("   /",dirNames[2:length(dirNames)]),file=readmeFile,sep="\n",append=TRUE)
+  cat("/R_files",file=readmeFile,sep="\n",append=TRUE)
+  cat("/packrat",file=readmeFile,sep="\n",append=TRUE)
   
   cat("", file= readmeFile,sep="\n",append=TRUE)
   ###Describe each directory
