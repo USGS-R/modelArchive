@@ -3,7 +3,7 @@
 #' @description
 #' The \code{createFolder} function creates a model archive folder with sub directories for required files. Defaults to current working directory.
 #' 
-#' @param path full file path to directory to place model archive folder
+#' @param folderPath full file path to directory to place model archive folder. If left NULL places folder in current working directory.
 #' @param folderName character string of name for model archive folder.
 
 #'@examples

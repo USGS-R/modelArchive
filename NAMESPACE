@@ -2,6 +2,7 @@
 
 export(bundleArchive)
 export(bundlePackages)
+export(checkArchive)
 export(copyScripts)
 export(createFolder)
 export(getR)

@@ -7,9 +7,9 @@
 createFolder(folderPath = NULL, folderName = "modelArchive")
 }
 \arguments{
-\item{folderName}{character string of name for model archive folder.}
+\item{folderPath}{full file path to directory to place model archive folder. If left NULL places folder in current working directory.}
 
-\item{path}{full file path to directory to place model archive folder}
+\item{folderName}{character string of name for model archive folder.}
 }
 \description{
 The \code{createFolder} function creates a model archive folder with sub directories for required files. Defaults to current working directory.
