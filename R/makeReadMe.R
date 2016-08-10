@@ -23,8 +23,8 @@ makeReadMe <- function(modelDescription,filePath = "modelArchive") {
   dirNames <- list.dirs(paste0(getwd(),"/",filePath),full.names=FALSE)
   dirNames <- dirNames[dirNames != "R_files"]
   dirNames <- dirNames[-grep("packrat",dirNames)]
-  dirStruc <- list.dirs(filePath)
-  dirStruc <- dirStruc[dirStruc != "R_files"]
+  dirStruc <- list.dirs(paste0(getwd(),"/",filePath))
+  dirStruc <- dirStruc[-grep("R_files",dirStruc)]
   dirStruc <- dirStruc[-grep("packrat",dirStruc)]
   
   cat(filePath,file=readmeFile,sep="\n",append=TRUE)
