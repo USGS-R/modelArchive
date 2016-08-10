@@ -27,9 +27,12 @@ makeReadMe <- function(modelTitle = "",
   readmeFile <- paste0(getwd(),"/",filePath,"/README.txt")
   file.create(readmeFile)
   
-  cat("TITLE: ",modelTitle, file= readmeFile,sep="\n",append=TRUE)
-  cat("AUTHOR: ",modelAuthor, file= readmeFile,sep="\n",append=TRUE)
-  cat("CONTACT: ",modelContact, file= readmeFile,sep="\n",append=TRUE)
+  cat("TITLE:",modelTitle, file= readmeFile,sep=" ",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  cat("AUTHOR:",modelAuthor, file= readmeFile,sep=" ",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  cat("CONTACT:",modelContact, file= readmeFile,sep=" ",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
   cat("", file= readmeFile,sep="\n",append=TRUE)
   
   cat("DESCRIPTION", file= readmeFile,sep="\n",append=TRUE)
@@ -40,11 +43,14 @@ makeReadMe <- function(modelTitle = "",
       systemInfo[1],
       " ",systemInfo[2],
       " ",systemInfo[3],
-      file= readmeFile,sep="\n",append=TRUE)
+      file= readmeFile,append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
   
   cat("R VERSION:",
       rVersion,
-      file= readmeFile,sep="\n",append=TRUE)
+      file= readmeFile,append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
   
   cat("MODEL RUN PROCEDURE", file= readmeFile,sep="\n",append=TRUE)
   cat(modelRunProcedure, file= readmeFile,sep="\n",append=TRUE)
