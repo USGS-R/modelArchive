@@ -11,7 +11,7 @@
 #'
 copyScripts <- function(scriptFiles = NULL,filePath = "modelArchive/scripts") {
   
-if(scriptFiles = NULL)
+if(is.null(scriptFiles))
 {
   scriptFiles <- list.files(pattern="\\.R$",recursive=TRUE)
 } else {

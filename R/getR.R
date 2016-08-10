@@ -10,8 +10,8 @@
 #'createFolder()
 #'@export
 getR <- function(OS="win",
-                         rVersion = NULL,
-                         filePath = "modelArchive/R_files") {
+                 rVersion = NULL,
+                 filePath = "modelArchive/R_files") {
   
   if(any(!(OS %in% c("win"))))
   {
@@ -30,9 +30,18 @@ getR <- function(OS="win",
   
   if("win" %in% OS)
   {
-    download.file(url = paste0("https://cran.r-project.org/bin/windows/base/old/",rVersion,"/R-",rVersion,"-win.exe"),
-                  destfile = paste0(getwd(),"/",filePath,"/R-",rVersion,"-win.exe"),
-                  method="auto")
+    verTest <- try({
+      download.file(url = paste0("https://cran.r-project.org/bin/windows/base/","/R-",rVersion,"-win.exe"),
+                    destfile = paste0(getwd(),"/",filePath,"/R-",rVersion,"-win.exe"),
+                    method="auto")
+    },
+    silent=TRUE)
+    if(class(verTest) == "try-error")
+    {
+      download.file(url = paste0("https://cran.r-project.org/bin/windows/base/old/",rVersion,"/R-",rVersion,"-win.exe"),
+                    destfile = paste0(getwd(),"/",filePath,"/R-",rVersion,"-win.exe"),
+                    method="auto")
+    } 
   }
-
+  
 }

@@ -20,10 +20,12 @@ makeReadMe <- function(modelDescription,filePath = "modelArchive") {
   cat("", file= readmeFile,sep="\n",append=TRUE)
   
   ###Get directory structure
-  dirNames <- list.dirs(filePath,full.names=FALSE)
+  dirNames <- list.dirs(paste0(getwd(),"/",filePath),full.names=FALSE)
   dirNames <- dirNames[dirNames != "R_files"]
+  dirNames <- dirNames[-grep("packrat",dirNames)]
   dirStruc <- list.dirs(filePath)
   dirStruc <- dirStruc[dirStruc != "R_files"]
+  dirStruc <- dirStruc[-grep("packrat",dirStruc)]
   
   cat(filePath,file=readmeFile,sep="\n",append=TRUE)
   cat(paste0("   /",dirNames[2:length(dirNames)]),file=readmeFile,sep="\n",append=TRUE)
@@ -38,7 +40,8 @@ makeReadMe <- function(modelDescription,filePath = "modelArchive") {
   }
   
   cat("/R_files"," contains files to install R version used for model",file=readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  cat("/packrat"," contains packages used by model that are not part of the base R library",file=readmeFile,sep="\n",append=TRUE)
   
-
 
 }
