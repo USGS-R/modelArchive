@@ -78,6 +78,6 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(length(errors) == 0) {
     print("Model archive complete")
-  } else(stop(errors))
+  } else(warning(errors))
   
 }
