@@ -16,7 +16,7 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(dir.exists(paste0(getwd(),"/",filePath,"/input")))
   {
-    if(length(list.files("input")) == 0)
+    if(length(list.files(paste0(getwd(),"/",filePath,"/input"))) == 0)
     {
       errors <- c(errors," Input directory contains no input files")
     } else {"OK"}
@@ -27,7 +27,7 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(dir.exists(paste0(getwd(),"/",filePath,"/output")))
   {
-    if(length(list.files("output")) == 0)
+    if(length(list.files(paste0(getwd(),"/",filePath,"/output"))) == 0)
     {
       errors <- c(errors," output directory contains no output files")
     } else {"OK"}
@@ -38,7 +38,7 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(dir.exists(paste0(getwd(),"/",filePath,"/R_files")))
   {
-    if(length(list.files("R_files")) == 0)
+    if(length(list.files(paste0(getwd(),"/",filePath,"/R_files"))) == 0)
     {
       errors <- c(errors,"R_files directory contains no files")
     } else {"OK"}
@@ -49,7 +49,7 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(dir.exists(paste0(getwd(),"/",filePath,"/scripts")))
   {
-    if(length(list.files("scripts")) == 0)
+    if(length(list.files(paste0(getwd(),"/",filePath,"/scripts"))) == 0)
     {
       errors <- c(errors," scripts directory contains no files")
     } else {"OK"}
@@ -60,7 +60,7 @@ checkArchive <- function(filePath = "modelArchive") {
   
   if(dir.exists(paste0(getwd(),"/",filePath,"/packrat")))
   {
-    if(length(list.files("packrat")) == 0)
+    if(length(list.files(paste0(getwd(),"/",filePath,"/packrat"))) == 0)
     {
       errors <- c(errors," packrat directory contains no files")
     } else {"OK"}
@@ -70,9 +70,9 @@ checkArchive <- function(filePath = "modelArchive") {
   if(file.exists(paste0(getwd(),"/",filePath,"/README.txt")))
   {
     readme <- scan(paste0(getwd(),"/",filePath,"/README.txt"),what="character",sep="\n")
-    if(length(grep("ADD DESCRIPTION",readme)))
+    if(length(grep("ADD DESCRIPTION",readme)) > 0)
     {
-      c(errors," Some files do not have descriptions in README.txt")
+      errors <- c(errors," Some files do not have descriptions in README.txt")
     }
   } else{errors <- c(errors," No README.txt found, run makeReadMe()")}  
   
@@ -80,5 +80,4 @@ checkArchive <- function(filePath = "modelArchive") {
     print("Model archive complete")
   } else(stop(errors))
   
-  setwd(wd)
 }
