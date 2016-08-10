@@ -1,6 +1,8 @@
 # modelArchive
 Package to aid in preparing and reviewing model archives for USGS R models.
 
+#CURRENTLY ONLY SUPPORTS WINDOWS
+
 #Overview
 This package was created to help USGS model authors archive models written in R. Special attention must be paid to R model archiving because of variations in R versions and package dependencies. The modelArchive package is a collection of functions that help the model author aggregate all the required files for a complete R model archive.
 
