@@ -9,7 +9,7 @@ Depends:
     R (>= 3.0)
 Imports:
   packrat,
-  testthat
+  ascii
 License: CC0
 LazyLoad: yes
 LazyData: yes
