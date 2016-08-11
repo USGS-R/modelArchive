@@ -21,6 +21,12 @@ checkArchive <- function(filePath = "modelArchive") {
       errors <- c(errors," Input directory contains no input files")
     } else {"OK"}
     
+    if(length(list.files(paste0(getwd(),"/",filePath,"/input"))) - length(list.files(paste0(getwd(),"/",filePath,"/input"),pattern = "\\.meta$")) != 
+       length(list.files(paste0(getwd(),"/",filePath,"/input"),pattern = "\\.meta$")))
+    {
+      errors <- c(errors," Not all data files in input directory have .meta files")
+    } else {"OK"}
+    
   } else{errors <- c(errors,"No input directory found")}
   
   #print("Checking output directory")
@@ -30,6 +36,12 @@ checkArchive <- function(filePath = "modelArchive") {
     if(length(list.files(paste0(getwd(),"/",filePath,"/output"))) == 0)
     {
       errors <- c(errors," output directory contains no output files")
+    } else {"OK"}
+    
+    if(length(list.files(paste0(getwd(),"/",filePath,"/output"))) - length(list.files(paste0(getwd(),"/",filePath,"/output"),pattern = "\\.meta$")) != 
+       length(list.files(paste0(getwd(),"/",filePath,"/output"),pattern = "\\.meta$")))
+    {
+      errors <- c(errors," Not all data files in output directory have .meta files")
     } else {"OK"}
     
   } else{errors <- c(errors,"No output directory found")}
