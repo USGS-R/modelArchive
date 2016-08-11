@@ -5,8 +5,8 @@
 \title{Makes a basic readme to go with model archive.}
 \usage{
 makeReadMe(modelTitle = "", modelAuthor = "", modelContact = "",
-  modelDescription = "", modelRunProcedure = "", supInfo = "",
-  filePath = "modelArchive")
+  modelDescription = "", modelPurpose = "", modelRunProcedure = "",
+  supInfo = "", filePath = "modelArchive")
 }
 \arguments{
 \item{modelTitle}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
@@ -16,6 +16,8 @@ makeReadMe(modelTitle = "", modelAuthor = "", modelContact = "",
 \item{modelContact}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
 
 \item{modelDescription}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
+
+\item{modelPurpose}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
 
 \item{modelRunProcedure}{String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.}
 

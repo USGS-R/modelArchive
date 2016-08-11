@@ -7,6 +7,7 @@
 #' @param modelAuthor String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param modelContact String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param modelDescription String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
+#' @param modelPurpose String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param modelRunProcedure String describing the model. Line breaks can be included by splitting the description into a character vector, where each line cooresponds to an entry in the vector.
 #' @param filePath Relative file path of folder cooresponding to model archive folder.
 #'@examples
@@ -17,6 +18,7 @@ makeReadMe <- function(modelTitle = "",
                        modelAuthor = "",
                        modelContact = "",
                        modelDescription = "",
+                       modelPurpose = "",
                        modelRunProcedure = "",
                        supInfo = "",
                        filePath = "modelArchive") {
@@ -37,6 +39,10 @@ makeReadMe <- function(modelTitle = "",
   
   cat("DESCRIPTION", file= readmeFile,sep="\n",append=TRUE)
   cat(modelDescription, file= readmeFile,sep="\n",append=TRUE)
+  cat("", file= readmeFile,sep="\n",append=TRUE)
+  
+  cat("PURPOSE", file= readmeFile,sep="\n",append=TRUE)
+  cat(modelPurpose, file= readmeFile,sep="\n",append=TRUE)
   cat("", file= readmeFile,sep="\n",append=TRUE)
   
   cat("OPERATING SYSTEM:",
