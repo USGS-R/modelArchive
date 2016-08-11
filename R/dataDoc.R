@@ -14,8 +14,8 @@
 
 dataDoc <- function(dataFrame,fileName=NULL,type="ascii")
 {
-  types <- apply(dataFrame,2,typeof)
-  
+  types <- lapply(dataFrame,class)
+  types <- unlist(types)
   metaData <- data.frame(variable = names(types),
                          dataType = types)
   metaData$description <- ""
