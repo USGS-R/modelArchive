@@ -38,7 +38,7 @@ Make a basic readme file describing the model archive
 makeReadMe(modelDescription = "This is a test of the emergency broadcast system.")
 ```
 
-Make a basic .meta metadata file describing the each dataframe used in the model
+Make a basic .meta metadata file describing each dataframe used in the model
 
 ```{r, eval=FALSE}
 dataDoc(dataFrame = "dataset1",fileName = "dataset1.meta")
