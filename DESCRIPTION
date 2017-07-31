@@ -4,7 +4,7 @@ Title: Aids in creating and reviewing model archives for USGS R models.
 Version: 0.1
 Date: 2016-08-09
 Authors@R: c( person("Joe", "Mills", role = c("aut","cre"),
-    email = "tmills@usgs.gov"))
+    email = "gs-w_r_admin@usgs.gov"))
 Depends:
     R (>= 3.0)
 Imports:
