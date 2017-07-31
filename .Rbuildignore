@@ -2,4 +2,5 @@
 ^\.Rproj\.user$
 ^packrat/
 ^\.Rprofile$
+.travis.yml
 CONDUCT.md
